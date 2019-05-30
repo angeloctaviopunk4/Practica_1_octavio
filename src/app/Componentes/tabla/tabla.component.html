@@ -1,0 +1,29 @@
+<div class="panel panel-default" id="panel">
+    <!-- Default panel contents -->
+    <div id="cabecera" class="panel-heading">Personas Registradas</div>
+    <div class="panel-body">
+      
+    </div>
+  
+    <!-- Table -->
+    
+    <table class="table">
+  
+      <tr > 
+          <th>Emoticon</th><th>Nombre(s)</th><th>Apellido paterno</th><th>Apellido materno</th><th>Edad</th><th>Sexo</th><th>Correo</th>
+          </tr>
+          
+          <tr *ngFor="let persona of datos">
+        
+            <td><i class="{{persona.Emoticon}}"></i></td>
+            <td>{{persona.Nombre}}</td>
+            <td>{{persona.Apellido_paterno}}</td>
+            <td>{{persona.Apellido_materno}}</td>
+            <td>{{persona.Edad}}</td>
+            <td>{{persona.Sexo}}</td>
+            <td>{{persona.Correo}}</td>
+           
+           </tr>
+  
+    </table>
+  </div>

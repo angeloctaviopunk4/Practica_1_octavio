@@ -1,0 +1,61 @@
+<div class="mt-5 col-8"    >
+  <form class="" name="form"(ngSubmit)="f.form.valid && onSubmit()"#f="ngForm"novalidate>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nombre</label>
+    
+      <input type="text" [(ngModel)]="persona.Nombre" class="form-control" name="Nombre"  #Nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Nombre.invalid }" required placeholder="Ingresa nombre">
+    </div>
+    <div *ngIf="f.submitted && Nombre.invalid" class="">
+      <div class="alert alert-danger" *ngIf="Nombre.errors.required">
+        El nombre es obligatorio
+      </div>
+  </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Apellido paterno</label>
+      <input type="text" [(ngModel)]="persona.Apellido_paterno"   class="form-control" name="Apellido_paterno" #Apellido_paterno="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Apellido_paterno.invalid }" required placeholder="Ingresa apellido paterno">
+    </div>
+    <div *ngIf="f.submitted && Apellido_paterno.invalid" >
+      <div class="alert alert-danger"*ngIf="Apellido_paterno.errors.required">Apellido paterno es obligatorio</div>
+      
+  </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Apellido materno</label>
+      <input type="text" [(ngModel)]="persona.Apellido_materno"  class="form-control" name="Apellido_materno" #Apellido_materno="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Apellido_materno.invalid }" required placeholder="Ingresa apellido materno">
+    </div>
+    <div *ngIf="f.submitted && Apellido_materno.invalid">
+      <div class="alert alert-danger" *ngIf="Apellido_materno.errors.required">Apellido materno es obligatorio</div>
+  </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Edad</label>
+      <input  type="text" [(ngModel)]="persona.Edad" inputmode="numeric" pattern="[0-9]*" digitOnly  class="form-control" name="Edad"  #Edad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Edad.invalid }" required placeholder="Ingresa edad">
+    </div>
+    <div *ngIf="f.submitted && Edad.invalid" >
+      <div class="alert alert-danger" *ngIf="Edad.errors.required">Edad es obligatoria</div>
+      <div class="alert alert-danger" *ngIf="Edad.errors.pattern">Ingresa unicamente numeros</div>
+  </div>
+    <div class="form-group">
+        <label for="sel1">Sexo:</label>
+        <select  [(ngModel)]="persona.Sexo" class="form-control" name="Sexo" #Sexo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Sexo.invalid }" required>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+       </select>
+      </div>
+      <div *ngIf="f.submitted && Sexo.invalid" >
+        <div class="alert alert-danger" *ngIf="Sexo.errors.required">Sexo es obligatorio</div>
+    </div>
+      
+   
+    <div class="form-group">
+      <label for="exampleInputPassword1">Correo</label>
+      <input type="text" [(ngModel)]="persona.Correo"  class="form-control" name="Correo"  #Correo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Correo.invalid }" required email placeholder="Ingresa tu correo">
+    </div>
+    <div *ngIf="f.submitted && Correo.invalid">
+      <div  class="alert alert-danger" *ngIf="Correo.errors.required">Correo es requerido</div>
+      <div class="alert alert-danger" *ngIf="Correo.errors.email">Ingresa un correo valido</div>
+  </div>
+   
+    <button class="btn btn-primary" >Guardar</button>
+   
+  </form>
+  
+</div>
